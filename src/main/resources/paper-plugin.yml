@@ -1,0 +1,4 @@
+name: RTTServerPlugin
+version: '${project.version}'
+main: app.netlify.randomttips.rttserverplugin.RTTServerPlugin
+api-version: '1.21'
