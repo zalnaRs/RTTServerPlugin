@@ -2,16 +2,13 @@ package app.netlify.randomttips.rttserverplugin;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitScheduler;
 
-import static java.lang.StringTemplate.STR;
-
 public final class RTTServerPlugin extends JavaPlugin {
 
-    private final String text = "\n-----------------\n§fI want to thank everyone who donated/sent gifts and played on my server.\n§f-----------------\n§dTiktok§8/§cYoutube§f: @randomttips\nWebsite: https://randomttips.netlify.app\n-----------------\n";
+    private final String text = "\n-----------------\n§fI want to thank everyone who donated/sent gifts and played on my server.\n§f-----------------\n§dTikTok§8/§cYouTube§f: @randomttips\nWebsite: https://randomttips.netlify.app\n-----------------\n";
     private final int maxPlayersCount = getServer().getMaxPlayers();
     private final long maxRam = Runtime.getRuntime().totalMemory() / 1048576;
     private final long criticalRam = maxRam-1000;
@@ -21,9 +18,7 @@ public final class RTTServerPlugin extends JavaPlugin {
         // Plugin startup logic
         BukkitScheduler scheduler = this.getServer().getScheduler();
 
-        scheduler.scheduleSyncRepeatingTask(this, () -> {
-            getServer().broadcast(Component.text(text));
-        }, 0, 36000/*120*/);
+        scheduler.scheduleSyncRepeatingTask(this, () -> getServer().broadcast(Component.text(text)), 0, 36000/*120*/);
 
 
         new BukkitRunnable() {
@@ -40,7 +35,7 @@ public final class RTTServerPlugin extends JavaPlugin {
                     playerColor = "§f";
                 }
 
-                String heading = "§f§lRandomTechTips's server§r§7\n  https://randomttips.netlify.app/server§r";
+                String heading = "§f§lRandomTechTips' server§r§7\n  https://randomttips.netlify.app/server§r";
                 String playerCounter = STR."§7Players online: \{playerColor}\{playerCount}§7/§f\{maxPlayersCount}";
 
                 String ramColor;
